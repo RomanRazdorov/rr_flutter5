@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class IosPage extends StatelessWidget {
   const IosPage({super.key});
@@ -9,6 +10,7 @@ class IosPage extends StatelessWidget {
       home: CupertinoPageScaffold(
         navigationBar: CupertinoNavigationBar(
           middle: Text('Platform Page Navigation Bar'),
+          backgroundColor: Colors.deepOrange,
         ),
         child: Center(
           child: Text('iOS Platform Page'),
