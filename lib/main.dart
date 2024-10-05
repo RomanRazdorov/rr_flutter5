@@ -17,23 +17,22 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (!kIsWeb && defaultTargetPlatform == TargetPlatform.android)
-    {
-      return const AndroidPage();
-    } else if (!kIsWeb && defaultTargetPlatform == TargetPlatform.iOS)
-    {
-      return const IosPage();
-    } else if (!kIsWeb && defaultTargetPlatform == TargetPlatform.macOS)
-    {
-      return const MacosPage();
-    } else if (!kIsWeb && defaultTargetPlatform == TargetPlatform.windows)
-    {
-      return const WindowsPage();
-    } else if (kIsWeb)
-    {
+    if (kIsWeb) {
       return const WebPage();
     } else {
-      return const Text('Unsupported Platform');
+      if (Platform.isAndroid) {
+        return const AndroidPage();
+      } else if (Platform.isIOS) {
+        return const IosPage();
+      } else if (Platform.isMacOS) {
+        return const MacosPage();
+      } else if (Platform.isWindows) {
+        return const WindowsPage();
+      } else if (Platform.isLinux) {
+        return const Text('Linux Platform');
+      } else {
+        return const Text('Unsupported Platform');
+      }
     }
   }
 }
